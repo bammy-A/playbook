@@ -1,0 +1,14 @@
+- name: ec2 launcher
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: launching ec2
+      community.aws.ec2_instance:
+        instance_type: t2.micro
+        key_name: bammyA
+        image_id: ami-0bd4d695347c0ef88
+          # image_id:
+        region: us-west-1
+        count: 1
+        subnet_id: subnet-00dc4759209ec01bf
+        wait: yes
